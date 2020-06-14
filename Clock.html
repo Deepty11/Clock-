@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Clock</title>
+</head>
+<style>
+body{
+  background-color: #000;
+}
+.clockClass{
+  position:absolute;
+  left: 30%;
+  top: 50%;
+  font-style: italic;
+  color: #fff;
+  transform: translateX(50%) translateY(-50%);
+  font-size:50px;
+}
+}
+</style>
+<body>
+  <div id="clockId" class="clockClass">
+
+  </div>
+  <script type="text/javascript">
+   function myClock(){
+     var date= new Date();
+     var h= date.getHours();
+     var m= date.getMinutes();
+     var s= date.getSeconds();
+     var session="AM";
+     if(h>=12){session="PM";};
+     if(h<10){
+       h="0"+h;
+     }
+     if(m<10){
+       m="0"+m;
+     }
+     if(s<10){
+       s="0"+s;
+     }
+
+
+     var time = h +":"+m+":"+s+" "+session;
+
+
+     document.getElementById("clockId").innerText=time;
+     document.getElementById("clockId").textContent=time;
+     setTimeout(myClock,1000);
+
+   }
+   myClock()
+   //setInterval(myClock,1000);
+  </script>
+</body>
+</html>
